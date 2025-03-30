@@ -1,0 +1,37 @@
+name: Deploy AWS Glue Job with Dependencies
+
+on:
+  push:
+    branches:
+      - master  # Change if you're using a different branch like 'my-test'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📦 Checkout Code
+      uses: actions/checkout@v3
+
+#    - name: 🔐 Configure AWS Credentials
+#      uses: aws-actions/configure-aws-credentials@v2
+#      with:
+#        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#        aws-region: ap-south-1  # Change to your region
+#
+#    - name: 📁 Zip Dependencies (excluding jobs/)
+#      run: |
+#        mkdir glue_dependencies
+#        cp -r src glue_dependencies/
+#        cd glue_dependencies
+#        zip -r ../glue_dependencies.zip .
+#        cd ..
+#
+#    - name: ☁️ Upload Glue Script to S3
+#      run: |
+#        aws s3 cp src/jobs/s3_s3_job.py s3://pyspark-test-regularpython/glue-jobs/s3_s3_job.py
+#
+#    - name: ☁️ Upload Dependencies Zip to S3
+#      run: |
+#        aws s3 cp glue_dependencies.zip s3://pyspark-test-regularpython/glue-jobs/glue_dependencies.zip
