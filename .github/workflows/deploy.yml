@@ -28,10 +28,10 @@ jobs:
         zip -r ../glue_dependencies.zip .
         cd ..
 
-#    - name: ☁️ Upload Glue Script to S3
-#      run: |
-#        aws s3 cp src/jobs/s3_s3_job.py s3://pyspark-test-regularpython/glue-jobs/s3_s3_job.py
-#
+    - name: ☁️ Upload Glue Script to S3
+      run: |
+        aws s3 cp src/jobs/s3_s3_job.py s3://pyspark-test-regularpython/glue-jobs/s3_s3_job.py
+
     - name: ☁️ Upload Dependencies Zip to S3
       run: |
         aws s3 cp glue_dependencies.zip s3://pyspark-test-regularpython/glue-jobs/glue_dependencies.zip
