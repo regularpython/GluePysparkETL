@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  pyspark:
+    build: .
+    container_name: pyspark-dev
+    volumes:
+      - "D:/Students/Class Explanation/PySpark/PySpark + Glue/CarsData/pyspark_test_data:/app/source"
+      - "D:/Students/Class Explanation/PySpark/PySpark + Glue/CarsData/Destination:/app/destination"
+    tty: true
